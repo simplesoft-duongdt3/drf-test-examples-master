@@ -1,0 +1,10 @@
+Django==3.2.22
+djangorestframework
+django-dynamic-fixture
+factory-boy
+Faker
+gunicorn
+python-dateutil
+pytz
+six
+text-unidecode
