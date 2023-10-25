@@ -17,4 +17,4 @@ DRF Application skeleton
 
 
 # remove psycopg2-binary
-https://docs.djangoproject.com/en/4.2/topics/migrations/#version-control
+https://docs.djangoproject.com/en/3.2/topics/migrations/#version-control
