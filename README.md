@@ -40,3 +40,14 @@ https://lukeplant.me.uk/blog/posts/test-factory-functions-in-django/#custom-fact
 https://paulonteri.com/thoughts/should-you-commit-migrations
 
 https://docs.djangoproject.com/en/3.2/topics/migrations/#version-control
+
+https://johnnymetz.com/posts/check-django-migrations/
+
+https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/
+
+https://adamj.eu/tech/2020/12/10/introducing-django-linear-migrations/
+https://pypi.org/project/django-linear-migrations/
+
+https://www.algotech.solutions/blog/python/django-migrations-and-how-to-manage-conflicts/
+
+https://riptutorial.com/django/example/23659/solving-migration-conflicts
