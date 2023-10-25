@@ -17,4 +17,26 @@ DRF Application skeleton
 
 
 # remove psycopg2-binary
+
+
+
+# Test library
+# mocking
+https://www.20tab.com/about-us/20blog/test-python-mocking
+
+https://docs.python.org/3/library/unittest.mock-examples.html#
+
+# factory_boy
+https://factoryboy.readthedocs.io/en/stable/
+
+# django-dynamic-fixture
+https://django-dynamic-fixture.readthedocs.io/en/latest/overview.html#basic-example-of-usage
+
+# Anti-library factory
+https://lukeplant.me.uk/blog/posts/test-factory-functions-in-django/#custom-factory-functions
+
+
+# Migrations
+https://paulonteri.com/thoughts/should-you-commit-migrations
+
 https://docs.djangoproject.com/en/3.2/topics/migrations/#version-control
