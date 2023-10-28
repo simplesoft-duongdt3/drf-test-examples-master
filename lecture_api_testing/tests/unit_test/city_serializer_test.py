@@ -6,6 +6,10 @@ from lecture_api_testing.serializers import CitySerializer
 
 # APISimpleTestCase (doesn't work with db)
 class CitySerializerTest(APISimpleTestCase):
+
+    def setUp(self):
+        print('Setup here')
+
     def test_serializer_valid(self):
         data = {'name': 'Test Serializer', 'population': 109090}
         serializer = CitySerializer(data=data)
@@ -19,7 +23,7 @@ class CitySerializerTest(APISimpleTestCase):
     def test_serializer_read(self):
         name = 'Test Serializer'
         population = 109090
-        data = {'name': 'Test Serializer', 'population': population}
+        data = {'name': name, 'population': population}
         serializer = CitySerializer(data=data)
         serializer.is_valid()
 
