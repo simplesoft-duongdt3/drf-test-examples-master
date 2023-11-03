@@ -20,4 +20,5 @@ from lecture_api_testing.router import router as lecture_api_testing_router
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(lecture_api_testing_router.urls)),
+
 ]

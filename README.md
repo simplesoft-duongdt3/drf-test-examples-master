@@ -22,6 +22,9 @@ DRF Application skeleton
 
 # Test library
 # mocking
+
+https://www.pythontutorial.net/python-unit-testing/python-patch/
+
 https://www.20tab.com/about-us/20blog/test-python-mocking
 
 https://docs.python.org/3/library/unittest.mock-examples.html#
@@ -35,8 +38,8 @@ https://django-dynamic-fixture.readthedocs.io/en/latest/overview.html#basic-exam
 # Anti-library factory
 https://lukeplant.me.uk/blog/posts/test-factory-functions-in-django/#custom-factory-functions
 
-
 # Migrations
+
 https://paulonteri.com/thoughts/should-you-commit-migrations
 
 https://docs.djangoproject.com/en/3.2/topics/migrations/#version-control
@@ -51,3 +54,6 @@ https://pypi.org/project/django-linear-migrations/
 https://www.algotech.solutions/blog/python/django-migrations-and-how-to-manage-conflicts/
 
 https://riptutorial.com/django/example/23659/solving-migration-conflicts
+
+# create-initial-django-migrations-for-existing-schema
+https://micropyramid.com/blog/how-to-create-initial-django-migrations-for-existing-schema

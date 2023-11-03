@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase, APISimpleTestCase, APITransactionTestCase
@@ -47,6 +49,51 @@ class TestCaseForCity(APITestCase):
         city = City.objects.first()
         city.set_population_to_zero()
         self.assertEqual(city.name, "Died")
+
+    def test_users_api_client(self):
+        response = self.client.get("/api/users/100/")
+
+        expected_json = {'data': {'id': '100', 'name': 'Doan Thanh Duong', 'qr_code_url': 'https://myqr.com/000.png'}, 'result': 1}
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertDictEqual(response.data, expected_json)
+
+    def test_users_with_mock_qrcode_context_manager_api_client(self):
+        mocked_qr_code_url = 'mocked_url_context_manager'
+
+        with patch('lecture_api_testing.views.get_qr_code_url') as mock_get_qr_code_url:
+            mock_get_qr_code_url.return_value = mocked_qr_code_url
+            response = self.client.get("/api/users/100/")
+
+            expected_json = {'data': {'id': '100', 'name': 'Doan Thanh Duong', 'qr_code_url': mocked_qr_code_url}, 'result': 1}
+
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+            self.assertDictEqual(response.data, expected_json)
+
+    @patch('lecture_api_testing.views.get_qr_code_url')
+    def test_users_with_mock_qrcode_decorator_api_client(self, mock_get_qr_code_url):
+        mocked_qr_code_url = 'mocked_url_decorator'
+        mock_get_qr_code_url.return_value = mocked_qr_code_url
+
+        response = self.client.get("/api/users/100/")
+
+        expected_json = {'data': {'id': '100', 'name': 'Doan Thanh Duong', 'qr_code_url': mocked_qr_code_url}, 'result': 1}
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertDictEqual(response.data, expected_json)
+
+
+    @patch('lecture_api_testing.views.User2ViewSet.get_qr_code_url2')
+    def test_users2_with_mock_qrcode_decorator_api_client(self, mock_get_qr_code_url):
+        mocked_qr_code_url = 'mocked_url_decorator'
+        mock_get_qr_code_url.return_value = mocked_qr_code_url
+
+        response = self.client.get("/api/users2/100/")
+
+        expected_json = {'data': {'id': '100', 'name': 'Doan Thanh Duong', 'qr_code_url': mocked_qr_code_url}, 'result': 1}
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertDictEqual(response.data, expected_json)
 
 
 class TestCaseForCityWithTransaction(APITransactionTestCase):
