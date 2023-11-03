@@ -57,3 +57,21 @@ https://riptutorial.com/django/example/23659/solving-migration-conflicts
 
 # create-initial-django-migrations-for-existing-schema
 https://micropyramid.com/blog/how-to-create-initial-django-migrations-for-existing-schema
+
+
+# Run tests
+
+pip install coverage
+
+
+./manage.py test
+
+./manage.py test lecture_api_testing/
+
+./manage.py test lecture_api_testing/tests/unit_test
+
+./manage.py test lecture_api_testing/tests/integration_test
+
+coverage run manage.py test -v 2
+
+coverage run manage.py test lecture_api_testing/  -v 2

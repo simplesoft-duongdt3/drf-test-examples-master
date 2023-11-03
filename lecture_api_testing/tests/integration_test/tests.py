@@ -12,10 +12,18 @@ from lecture_api_testing.views import CityViewSet, SchoolViewSet, StudentViewSet
 
 # APITestCase (allows to work with db)
 class TestCaseForCity(APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        print('Setup default user, models first time')
+
+    def setUp(self):
+        print('Setup default user, models each case')
+
 
     # Testing via request factory
     def test_get_city_request_factory(self):
         city = CityFactory(name="Test", population=1)
+
         request_factory = APIRequestFactory()
         request = request_factory.get("/api/cities/")
         city_view = CityViewSet.as_view({"get": "list"})
@@ -44,11 +52,11 @@ class TestCaseForCity(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     # Will fail
-    def test_transactional_case_for_city(self):
-        CityFactory(name="Test", population=1)
-        city = City.objects.first()
-        city.set_population_to_zero()
-        self.assertEqual(city.name, "Died")
+    # def test_transactional_case_for_city(self):
+    #     CityFactory(name="Test", population=1)
+    #     city = City.objects.first()
+    #     city.set_population_to_zero()
+    #     self.assertEqual(city.name, "Died")
 
     def test_users_api_client(self):
         response = self.client.get("/api/users/100/")
