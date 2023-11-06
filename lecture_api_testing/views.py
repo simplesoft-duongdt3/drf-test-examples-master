@@ -53,3 +53,16 @@ class User2ViewSet(viewsets.ViewSet):
                 "qr_code_url": qr_code_url,
             }
         })
+
+class User3ViewSet(viewsets.ViewSet):
+    def retrieve(self, request, pk=None):
+        from lecture_api_testing.util import get_qr_code_url_other_file
+        qr_code_url = get_qr_code_url_other_file(user_id=pk)
+        return Response({
+            'result': 1,
+            "data": {
+                'id': pk,
+                "name": "Doan Thanh Duong",
+                "qr_code_url": qr_code_url,
+            }
+        })

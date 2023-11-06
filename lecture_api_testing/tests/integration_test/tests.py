@@ -93,10 +93,24 @@ class TestCaseForCity(APITestCase):
 
     @patch('lecture_api_testing.views.User2ViewSet.get_qr_code_url2')
     def test_users2_with_mock_qrcode_decorator_api_client(self, mock_get_qr_code_url):
-        mocked_qr_code_url = 'mocked_url_decorator'
+        mocked_qr_code_url = 'mocked_url_decorator2'
         mock_get_qr_code_url.return_value = mocked_qr_code_url
 
         response = self.client.get("/api/users2/100/")
+
+        expected_json = {'data': {'id': '100', 'name': 'Doan Thanh Duong', 'qr_code_url': mocked_qr_code_url}, 'result': 1}
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertDictEqual(response.data, expected_json)
+
+
+
+    @patch('lecture_api_testing.util.get_qr_code_url_other_file')
+    def test_users3_with_mock_qrcode_decorator_api_client(self, mock_get_qr_code_url):
+        mocked_qr_code_url = 'mocked_url_decorator3'
+        mock_get_qr_code_url.return_value = mocked_qr_code_url
+
+        response = self.client.get("/api/users3/100/")
 
         expected_json = {'data': {'id': '100', 'name': 'Doan Thanh Duong', 'qr_code_url': mocked_qr_code_url}, 'result': 1}
 
