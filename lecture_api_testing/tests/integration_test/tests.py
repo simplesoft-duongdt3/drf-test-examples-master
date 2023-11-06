@@ -105,7 +105,7 @@ class TestCaseForCity(APITestCase):
 
 
 
-    @patch('lecture_api_testing.util.get_qr_code_url_other_file')
+    @patch('lecture_api_testing.views.get_qr_code_url_other_file')
     def test_users3_with_mock_qrcode_decorator_api_client(self, mock_get_qr_code_url):
         mocked_qr_code_url = 'mocked_url_decorator3'
         mock_get_qr_code_url.return_value = mocked_qr_code_url

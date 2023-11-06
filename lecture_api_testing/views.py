@@ -5,7 +5,7 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import City, School, Student
 from .serializers import CitySerializer, SchoolSerializer, StudentSerializer
-
+from lecture_api_testing.util import get_qr_code_url_other_file
 
 class CityViewSet(ModelViewSet):
     queryset = City.objects.all()
@@ -56,7 +56,6 @@ class User2ViewSet(viewsets.ViewSet):
 
 class User3ViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
-        from lecture_api_testing.util import get_qr_code_url_other_file
         qr_code_url = get_qr_code_url_other_file(user_id=pk)
         return Response({
             'result': 1,

@@ -23,6 +23,8 @@ DRF Application skeleton
 # Test library
 # mocking
 
+https://nedbatchelder.com/blog/201908/why_your_mock_doesnt_work.html
+
 https://www.pythontutorial.net/python-unit-testing/python-patch/
 
 https://www.20tab.com/about-us/20blog/test-python-mocking
