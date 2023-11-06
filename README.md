@@ -77,3 +77,12 @@ pip install coverage
 coverage run manage.py test -v 2
 
 coverage run manage.py test lecture_api_testing/  -v 2
+
+pytest lecture_api_testing/tests/integration_test
+
+pytest lecture_api_testing/tests/integration_test --junitxml=test-reports/integration_test.xml
+
+
+python -m junit2htmlreport test-reports/integration_test.xml test-reports/integration_test.html
+python -m junit2htmlreport test-reports/integration_test.xml --report-matrix test-reports/integration_test.html
+open test-reports/integration_test.html

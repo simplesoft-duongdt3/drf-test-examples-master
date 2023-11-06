@@ -8,3 +8,5 @@ python-dateutil
 pytz
 six
 text-unidecode
+pytest-django
+junit2html
