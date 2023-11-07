@@ -64,6 +64,8 @@ https://micropyramid.com/blog/how-to-create-initial-django-migrations-for-existi
 # coverage
 https://www.lambdatest.com/blog/pytest-code-coverage-report/
 
+https://dev.to/sherlockcodes/pytest-with-django-rest-framework-from-zero-to-hero-8c4
+
 # Run tests
 
 pip install coverage
@@ -86,14 +88,18 @@ pytest lecture_api_testing/tests/integration_test
 
 
 # Test reports
+
+## JUnit only
+
 pytest lecture_api_testing/tests/integration_test --junitxml=test-reports/integration_test.xml
+### Junit + coverage
+pytest --cov --cov-report=html:coverage_reports lecture_api_testing/tests/integration_test --junitxml=test-reports/integration_test.xml
 
 python -m junit2htmlreport test-reports/integration_test.xml test-reports/integration_test.html
 python -m junit2htmlreport test-reports/integration_test.xml --report-matrix test-reports/integration_test.html
 open test-reports/integration_test.html
+open coverage_reports/index.html
 
 
-pytest --cov --cov-report=html:coverage_reports lecture_api_testing/tests/integration_test --junitxml=test-reports/integration_test.xml
 
-Note: check agruments
--cov-branch
+
