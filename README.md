@@ -61,6 +61,9 @@ https://riptutorial.com/django/example/23659/solving-migration-conflicts
 https://micropyramid.com/blog/how-to-create-initial-django-migrations-for-existing-schema
 
 
+# coverage
+https://www.lambdatest.com/blog/pytest-code-coverage-report/
+
 # Run tests
 
 pip install coverage
@@ -76,13 +79,21 @@ pip install coverage
 
 coverage run manage.py test -v 2
 
-coverage run manage.py test lecture_api_testing/  -v 2
+coverage run manage.py test lecture_api_testing  -v 2
 
 pytest lecture_api_testing/tests/integration_test
 
-pytest lecture_api_testing/tests/integration_test --junitxml=test-reports/integration_test.xml
 
+
+# Test reports
+pytest lecture_api_testing/tests/integration_test --junitxml=test-reports/integration_test.xml
 
 python -m junit2htmlreport test-reports/integration_test.xml test-reports/integration_test.html
 python -m junit2htmlreport test-reports/integration_test.xml --report-matrix test-reports/integration_test.html
 open test-reports/integration_test.html
+
+
+pytest --cov --cov-report=html:coverage_reports lecture_api_testing/tests/integration_test --junitxml=test-reports/integration_test.xml
+
+Note: check agruments
+-cov-branch
